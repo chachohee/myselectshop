@@ -51,6 +51,8 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         response.addHeader(JwtUtil.AUTHORIZATION_HEADER, token);
     }
 
+    // 클라이언트에서 요청이 잘못 들어왔을 때 추가적인 요청이 있으면 여기에 기능 추가하면 됨.
+    // response 객체에 상태만 넘겨주는 게 아니라 메시지같은 거 넘겨주면 됨.
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) {
         response.setStatus(401);
